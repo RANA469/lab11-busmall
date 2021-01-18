@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Fredoka+One&family=Lobster&family=Xanh+Mono:ital@1&display=swap');
+/* body{
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSedo_HulCfcCIIkM-RBW6G3afwN2kvOxBSGw&usqp=CAU)
+    /* background-repeat: no-repeat; */
+    /* background-position: right top; */
+    /* margin-right: 200px;
+    background-attachment: fixed;
+    width:200;
+     height:100; */
+/* } */ 
+
+#div {
+    background-color:rgb(252, 238, 245);
+    width: 1000px;
+    border: 15px solid rgb(243, 186, 214);
+    padding: 50px;
+    margin: 20px;
+    text-align: center;
+    font-size: large;
+    font-family: Lobster;
+    font-size: 300%;
+    
+  }
+  /* #images-Div {
+   
+      
+        box-sizing: border-box;
+      }
+      
+      .column {
+        float: left;
+        width: 33.33%;
+        padding: 5px;
+      }
+      
+      /* Clearfix (clear floats) */
+      /* .row::after {
+        content: "";
+        clear: both;
+        display: table;
+      
+  } */ 
+ 
+    .column {
+        float: left;
+        width: 33.33%;
+        padding: 5px;
+      }
+      
+      /* Clearfix (clear floats) */
+      .row::after {
+        content: "";
+        clear: both;
+        display: table;
+      }
+    
+     
+ 
