@@ -124,7 +124,8 @@ function renderThreeRandomImages() {
     do {
         thirdIndex = randomNumbGenerator();
     } while (previousimgs.includes(thirdIndex));
-    previousimgs.push(thirdIndex)
+
+    previousthirdIndex = previousthirdIndex
 
 
     firstimg.src = prodimg.prototype.allprodimgs[firstIndex].source;
@@ -159,33 +160,42 @@ function clickByUser(event) {
         if (event.target.id === 'first-image') {
             userClickCounter++;
             prodimg.prototype.allprodimgs[firstIndex].vote++;
+
             renderThreeRandomImages();
 
         } else if (event.target.id === 'second-image') {
             userClickCounter++;
+            prodimg.prototype.allprodimgs[secondIndex].vote++;
+            renderThreeRandomImages();
+        } else if (event.target.id === 'third-image') {
+            userClickCounter++;
+
+            renderThreeRandomImages();
+
         }
-    }
-
-}
-
-
-function seeResults() {
-    // var resultsList = document.getElementById('results list');
-    var endResult;
-
-    for (var i = 0; i < prodimg.prototype.allprodimgs.length; i++) {
-        endResult = document.createElement('li');
-        // endResult.textContent = 'name';
-        endResult.textContent = prodimg.prototype.allprodimgs[i].name + 'has'
-            + prodimg.prototype.allprodimgs[i].vote + ' votes , and was seen ' +
-            prodimg.prototype.allprodimgs[i].view + 'times.' + ' The percentage of selcting this  prodimg is :' + (prodimg.prototype.allprodimgs[i].
-                vote * 100 / prodimg.prototype.allprodimgs[i].view) + '%';
-        resultslist.appendChild(endResult);
-        // console.log('prodimg');
+        seeResults();
+        chart();
 
     }
-    chart();
 
+
+    function seeResults() {
+        // var resultsList = document.getElementById('results list');
+        var endResult;
+
+        for (var i = 0; i < prodimg.prototype.allprodimgs.length; i++) {
+            endResult = document.createElement('li');
+            // endResult.textContent = 'name';
+            endResult.textContent = prodimg.prototype.allprodimgs[i].name + 'has'
+                + prodimg.prototype.allprodimgs[i].vote + ' votes , and was seen ' +
+                prodimg.prototype.allprodimgs[i].view + 'times.' + ' The percentage of selcting this  prodimg is :' + (prodimg.prototype.allprodimgs[i].
+                    vote * 100 / prodimg.prototype.allprodimgs[i].view) + '%';
+            resultslist.appendChild(endResult);
+            // console.log('prodimg');
+
+        }
+      
+        
 }
 
-
+}

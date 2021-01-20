@@ -12,9 +12,10 @@
 header{
   display: inline;
   background-color: rgb(226, 43, 43);
+  
 }
 
-/* div {
+ #div {
     background-color:rgb(252, 238, 245);
     width: 1000px;
     border: 15px solid rgb(243, 186, 214);
@@ -25,7 +26,15 @@ header{
     font-family: Lobster;
     font-size: 300%;
     
-  }  */
+  }  
+  img{
+    display: inline-block;
+    background-color: blue;
+    height: 100px;
+    width: 200px;
+    margin-right: 10px;
+    
+  }
   /* #images-Div {
         /* box-sizing: border-box; */
         
@@ -36,8 +45,21 @@ width: 200px;
         height: 150px;
       }
       #images-Div{
-        display: inline-block;
+        /* display: inline-block; */
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
       }
+      body {
+  background: lightblue url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrGOEHrFc5mAv8AUMMwvRl7rsnf1wvBYGf8Q&usqp=CAU") no-repeat fixed center;
+  height: 100%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+}
       /* /* .column {
         float: left;
         width: 33.33%;
