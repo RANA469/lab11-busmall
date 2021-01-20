@@ -83,62 +83,49 @@ function chart() {
 
 
 
-// var votes = [];
-// for (var i = 0; i < prodimg.prototype.allprodimgs.length; i++) {
-//     votes.push(prodimg.prototype.allprodimgs);
-// }
-
-
-
-// console.log(prodImage.prototype.allprodimgs)
-
-// var previousimgs = [previousfirstimg, previoussecondimg, previousthirdimg];
-// do {
-//     previousfirstimg=randomNumbGenerator();
-// }while(previousimgs.includes(firstimg));
-// previousimgs.push(firstimg)
-// do{
-//     previoussecondtimg=randomNumbGenerator();
-// }while(previousimgs.includes(secondimg));
-// previousimgs.push(secondimg)
-// do{
-//     previousthirdimg=randomNumbGenerator();
-// }while(previousimgs.includes(thirdimg));
-// previousimgs.push(thirdimg)
-
-
-
-
-var previousfirstimg = -1;
-var previoussecondimg = -1;
-var previousthirdimg = -1;
-
 
 var firstimg = document.getElementById('first-image');
 var secondimg = document.getElementById('second-image');
 var thirdimg = document.getElementById('third-image');
+
+
+
 var imagesDiv = document.getElementById('images-Div');
 var resultslist = document.getElementById('results-list');
 var resultslistbutton = document.getElementById('results-list-button');
 var setmaxuserRoundsForm = document.getElementById('setmaxuserRounds');
 
+var maxClickUser = 25;
+var userClickCounter = 0;
+
 var firstIndex;
 var secondIndex;
 var thirdIndex;
-var maxClickUser = 25;
-var userClickCounter = 0;
+
+var previousfirstIndex = -1;
+var previoussecondIndex = -1;
+var previousthirdIndex = -1;
+
+
 console.log(firstimg, secondimg, thirdimg)
+
+
 function renderThreeRandomImages() {
-    firstIndex = randomNumbGenerator();
+    var previousimgs = [previousfirstIndex, previoussecondIndex, previousthirdIndex];
 
     do {
         firstIndex = randomNumbGenerator();
+    } while (previousimgs.includes(firstIndex));
+    previousimgs.push(firstIndex)
+    do {
         secondIndex = randomNumbGenerator();
+    } while (previousimgs.includes(secondIndex));
+    previousimgs.push(secondIndex)
+    do {
         thirdIndex = randomNumbGenerator();
+    } while (previousimgs.includes(thirdIndex));
+    previousimgs.push(thirdIndex)
 
-        // (Math.random() * prodimg.allImages.length);
-    } while (firstIndex === thirdIndex || firstIndex ===
-    secondIndex || secondIndex === thirdIndex);
 
     firstimg.src = prodimg.prototype.allprodimgs[firstIndex].source;
     prodimg.prototype.allprodimgs[firstIndex].view++;
@@ -167,7 +154,7 @@ resultslistbutton.addEventListener('click', seeResults);
 
 function clickByUser(event) {
 
-console.log('clickByUser');
+    console.log('clickByUser');
     if (userClickCounter < maxClickUser) {
         if (event.target.id === 'first-image') {
             userClickCounter++;
@@ -178,7 +165,7 @@ console.log('clickByUser');
             userClickCounter++;
         }
     }
-   
+
 }
 
 
@@ -193,9 +180,9 @@ function seeResults() {
             + prodimg.prototype.allprodimgs[i].vote + ' votes , and was seen ' +
             prodimg.prototype.allprodimgs[i].view + 'times.' + ' The percentage of selcting this  prodimg is :' + (prodimg.prototype.allprodimgs[i].
                 vote * 100 / prodimg.prototype.allprodimgs[i].view) + '%';
-                resultslist.appendChild(endResult);
+        resultslist.appendChild(endResult);
         // console.log('prodimg');
- 
+
     }
     chart();
 
