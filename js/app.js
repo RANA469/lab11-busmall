@@ -6,6 +6,7 @@ function prodimg(name, source) {
     this.source = source;
     this.vote = 0;
     this.view = 0;
+    this.value = 0;
     prodimg.prototype.allprodimgs.push(this);
 }
 var setmaxuserRoundsForm = document.getElementById('setmaxuserRounds')
@@ -15,6 +16,7 @@ function submit(event) {
     console.log(event);
     event.preventDefault();
     maxClickUser = event.target.rounds.value;
+    console.log('value')
 }
 
 
@@ -150,6 +152,7 @@ function clickByUser(event) {
     chart();
     seeResults();
 }
+
 
 function seeResults() {
     var resultsList = document.getElementById('results list');
