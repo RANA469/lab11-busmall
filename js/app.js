@@ -174,8 +174,7 @@ function clickByUser(event) {
 
         }
         seeResults();
-        chart();
-
+        
     }
 
 
@@ -194,8 +193,12 @@ function clickByUser(event) {
             // console.log('prodimg');
 
         }
+        chart();
       
         
 }
 
 }
+
+
+
