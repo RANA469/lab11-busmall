@@ -7,6 +7,21 @@
     <title>bus mall</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .row {
+            display: flex;
+        }
+
+        /* Create three equal columns that sits next to each other */
+        .column {
+            flex: 33.33%;
+            padding: 5px;
+        }
+    </style>
 </head>
 
 <body>
@@ -36,22 +51,22 @@
             <br>
         </form>
         <div id="images-Div">
-            <div class="colomn">
-                <div class="row">
-                    <img  class="imgs" id="first-image" src="" />
+            <div class="row">
+                <div class="column">
+                    <img class="imgs" id="first-image" src="" />
                 </div>
                 <div class="column">
-                    <img   class="imgs" id="second-image" src="" />
+                    <img class="imgs" id="second-image" src="" />
                 </div>
                 <div class="column">
-                    <img  class="imgs" id="third-image" src="" />
+                    <img class="imgs" id="third-image" src="" />
                 </div>
-
             </div>
-            <canvas id="myChart"></canvas>
-            <ul id="results-list">
+        </div>
+        <canvas id="myChart"></canvas>
+        <ul id="results-list">
 
-                <input type="submit" id=" results-list-button" name="results-list" value="results-list" disabled>
+            <input type="submit" id="results-list-button" name="results-list" value="results-list" >
     </main>
 
     <footer>

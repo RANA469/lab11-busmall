@@ -51,8 +51,8 @@ width: 200px;
         display: table;
       
   } 
-  */
-    .column {
+  /* */
+    /* .column {
         float: left;
         width: 33.33%;
         padding: 5px;
@@ -63,7 +63,7 @@ width: 200px;
         content: "";
         clear: both;
         display: table;
-      }
+      } */ 
     
      
  

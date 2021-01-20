@@ -9,6 +9,8 @@ function prodimg(name, source) {
     this.value = 0;
     prodimg.prototype.allprodimgs.push(this);
 }
+// prodimg.prototype.allprodimgs =[];
+
 var setmaxuserRoundsForm = document.getElementById('setmaxuserRounds')
 setmaxuserRoundsForm.addEventListener('submit', submit);
 
@@ -50,8 +52,11 @@ function chart() {
 
     var votes = [];
     for (var i = 0; i < prodimg.prototype.allprodimgs.length; i++) {
-        votes.push(prodimg.prototype.allprodimgs);
+        votes.push(prodimg.prototype.allprodimgs[i].vote);
+        console.log(prodimg.prototype.allprodimgs[i].vote);
+
     }
+    console.log(prodimg.prototype.allprodimgs);
 
 
     var ctx = document.getElementById('myChart').getContext('2d');
@@ -78,20 +83,43 @@ function chart() {
 
 
 
-var votes = [];
-for (var i = 0; i < prodimg.prototype.allprodimgs.length; i++) {
-    votes.push(prodimg.prototype.allprodimgs);
-}
+// var votes = [];
+// for (var i = 0; i < prodimg.prototype.allprodimgs.length; i++) {
+//     votes.push(prodimg.prototype.allprodimgs);
+// }
 
 
 
 // console.log(prodImage.prototype.allprodimgs)
+
+// var previousimgs = [previousfirstimg, previoussecondimg, previousthirdimg];
+// do {
+//     previousfirstimg=randomNumbGenerator();
+// }while(previousimgs.includes(firstimg));
+// previousimgs.push(firstimg)
+// do{
+//     previoussecondtimg=randomNumbGenerator();
+// }while(previousimgs.includes(secondimg));
+// previousimgs.push(secondimg)
+// do{
+//     previousthirdimg=randomNumbGenerator();
+// }while(previousimgs.includes(thirdimg));
+// previousimgs.push(thirdimg)
+
+
+
+
+var previousfirstimg = -1;
+var previoussecondimg = -1;
+var previousthirdimg = -1;
+
 
 var firstimg = document.getElementById('first-image');
 var secondimg = document.getElementById('second-image');
 var thirdimg = document.getElementById('third-image');
 var imagesDiv = document.getElementById('images-Div');
 var resultslist = document.getElementById('results-list');
+var resultslistbutton = document.getElementById('results-list-button');
 var setmaxuserRoundsForm = document.getElementById('setmaxuserRounds');
 
 var firstIndex;
@@ -132,13 +160,14 @@ renderThreeRandomImages();
 // firstimg.addEventListener()
 imagesDiv.addEventListener('click', clickByUser);
 resultslist.addEventListener('click', resultslist);
-setmaxuserRounds.addEventListener('submit', setmaxuserRounds);
+setmaxuserRounds.addEventListener('click', setmaxuserRounds);
+resultslistbutton.addEventListener('click', seeResults);
 
 
 
 function clickByUser(event) {
 
-
+console.log('clickByUser');
     if (userClickCounter < maxClickUser) {
         if (event.target.id === 'first-image') {
             userClickCounter++;
@@ -149,22 +178,27 @@ function clickByUser(event) {
             userClickCounter++;
         }
     }
-    chart();
-    seeResults();
+   
 }
 
 
 function seeResults() {
-    var resultsList = document.getElementById('results list');
+    // var resultsList = document.getElementById('results list');
     var endResult;
+
     for (var i = 0; i < prodimg.prototype.allprodimgs.length; i++) {
         endResult = document.createElement('li');
+        // endResult.textContent = 'name';
         endResult.textContent = prodimg.prototype.allprodimgs[i].name + 'has'
             + prodimg.prototype.allprodimgs[i].vote + ' votes , and was seen ' +
-            prodimg.prototype.allprodimgs[i].view + 'times.' + ' The percentage of selcting this  prodimg is :'(prodimg.prototype.allprodimgs[i].
+            prodimg.prototype.allprodimgs[i].view + 'times.' + ' The percentage of selcting this  prodimg is :' + (prodimg.prototype.allprodimgs[i].
                 vote * 100 / prodimg.prototype.allprodimgs[i].view) + '%';
-        resultsList.appendChild(endResult);
+                resultslist.appendChild(endResult);
+        // console.log('prodimg');
+ 
     }
+    chart();
+
 }
 
 
