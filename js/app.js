@@ -174,7 +174,7 @@ function clickByUser(event) {
 
         }
         seeResults();
-        chart();
+       
 
     }
 
@@ -195,7 +195,8 @@ function clickByUser(event) {
 
         }
       
-        
+        chart();   
 }
 
 }
+
