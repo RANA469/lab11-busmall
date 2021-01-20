@@ -1,22 +1,11 @@
 'use strict';
 
-// var prodImage = document.getElementById('all_images');
-// var firstprodimg = document.getElementById('first_prod_img');
-// var secondprodimg = document.getElementById('second_prod_img');
-// var thirdprodimg = document.getElementById('third_prod_img');
-// var totalClicks = 0;
-
-// var firstprod = null;
-// var secondprod = null;
-// var thirdprod = null;
 
 function prodimg(name, source) {
     this.name = name;
     this.source = source;
     this.vote = 0;
     this.view = 0;
-    // this.timesShown = 0;
-    // this.url = imageSrc;
     prodimg.prototype.allprodimgs.push(this);
 }
 var setmaxuserRoundsForm = document.getElementById('setmaxuserRounds')
@@ -51,25 +40,41 @@ new prodimg('usb', '../img/usb.gif');
 new prodimg('water-can', '../img/water-can.jpg');
 new prodimg('wine-glass', '../img/wine-glass.jpg');
 
-var ctx = document.getElementById('myChart').getContext('2d');
-var chart = new Chart(ctx, {
-    // The type of chart we want to create
-    type: 'line',
+function randomNumbGenerator() {
+    return Math.floor(Math.random() * (prodimg.prototype.allprodimgs.length));
 
-    // The data for our dataset
-    data: {
-        labels: ['bag', 'banana', 'bathroom', 'boots', 'breakfast', 'bubblegum', 'chair', 'cthulhu', 'dog-duch', 'dragon', 'pen', 'pet-sweep', 'scissors', 'shark', 'sweep', 'tauntaun', 'unicorn', 'usb', 'water-can', 'wine-glass'],
-        datasets: [{
-            label: 'My First dataset',
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
-            data: votes
-        }]
-    },
+}
+function chart() {
 
-    // Configuration options go here
-    options: {}
-});
+    var votes = [];
+    for (var i = 0; i < prodimg.prototype.allprodimgs.length; i++) {
+        votes.push(prodimg.prototype.allprodimgs);
+    }
+
+
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'bar',
+
+        // The data for our dataset
+        data: {
+            labels: ['bag', 'banana', 'bathroom', 'boots', 'breakfast', 'bubblegum', 'chair', 'cthulhu', 'dog-duch', 'dragon', 'pen', 'pet-sweep', 'scissors', 'shark', 'sweep', 'tauntaun', 'unicorn', 'usb', 'water-can', 'wine-glass'],
+            datasets: [{
+                label: 'My First dataset',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: votes
+            }]
+        },
+
+        // Configuration options go here
+        options: {}
+    });
+
+}
+
+
 
 var votes = [];
 for (var i = 0; i < prodimg.prototype.allprodimgs.length; i++) {
@@ -77,10 +82,7 @@ for (var i = 0; i < prodimg.prototype.allprodimgs.length; i++) {
 }
 
 
-function randomNumbGenerator() {
-    return Math.floor(Math.random() * (prodimg.prototype.allprodimgs.length));
 
-}
 // console.log(prodImage.prototype.allprodimgs)
 
 var firstimg = document.getElementById('first-image');
@@ -94,7 +96,7 @@ var firstIndex;
 var secondIndex;
 var thirdIndex;
 var maxClickUser = 25;
-var clickCounter = 0;
+var userClickCounter = 0;
 console.log(firstimg, secondimg, thirdimg)
 function renderThreeRandomImages() {
     firstIndex = randomNumbGenerator();
@@ -142,23 +144,24 @@ function clickByUser(event) {
             renderThreeRandomImages();
 
         } else if (event.target.id === 'second-image') {
-            userClickCounter
+            userClickCounter++;
         }
     }
-
-
-    function seeResults(event) {
-        var resultsList = document.getElementById('results list');
-        var endResult;
-        for (var i = 0; i < prodimg.prototype.allprodimgs.length; i++) {
-            endResult = document.createElement('li');
-            endResult.textContent = prodimg.prototype.allprodimgs[i].name + 'has'
-                + prodimg.prototype.allprodimgs[i].vote + ' votes , and was seen ' +
-                prodimg.prototype.allprodimgs[i].view + 'times.' + ' The percentage of selcting this  prodimg is : '(prodimg.prototype.allprodimgs[i].
-                    vote * 100 / prodimg.prototype.allprodimgs[i].view) + '%';
-            resultsList.appendChild(endResult);
-        }
-    }
-    
+    chart();
+    seeResults();
 }
+
+function seeResults() {
+    var resultsList = document.getElementById('results list');
+    var endResult;
+    for (var i = 0; i < prodimg.prototype.allprodimgs.length; i++) {
+        endResult = document.createElement('li');
+        endResult.textContent = prodimg.prototype.allprodimgs[i].name + 'has'
+            + prodimg.prototype.allprodimgs[i].vote + ' votes , and was seen ' +
+            prodimg.prototype.allprodimgs[i].view + 'times.' + ' The percentage of selcting this  prodimg is :'(prodimg.prototype.allprodimgs[i].
+                vote * 100 / prodimg.prototype.allprodimgs[i].view) + '%';
+        resultsList.appendChild(endResult);
+    }
+}
+
 
