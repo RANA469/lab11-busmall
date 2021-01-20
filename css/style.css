@@ -9,7 +9,12 @@
      height:100; */
 /* } */ 
 
-#div {
+header{
+  display: inline;
+  background-color: rgb(226, 43, 43);
+}
+
+/* div {
     background-color:rgb(252, 238, 245);
     width: 1000px;
     border: 15px solid rgb(243, 186, 214);
@@ -20,18 +25,24 @@
     font-family: Lobster;
     font-size: 300%;
     
-  }
+  }  */
   /* #images-Div {
-   
-      
-        box-sizing: border-box;
+        /* box-sizing: border-box; */
+        
+      /* } */ 
+     .imgs {
+
+width: 200px;
+        height: 150px;
       }
-      
-      .column {
+      #images-Div{
+        display: inline-block;
+      }
+      /* .column {
         float: left;
         width: 33.33%;
         padding: 5px;
-      }
+      } */
       
       /* Clearfix (clear floats) */
       /* .row::after {
@@ -39,7 +50,7 @@
         clear: both;
         display: table;
       
-  } */ 
+  } 
  
     .column {
         float: left;
