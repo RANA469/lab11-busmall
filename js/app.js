@@ -175,12 +175,13 @@ function clickByUser(event) {
         }
         seeResults();
        
-
+        list();
     }
 
 
     function seeResults() {
         // var resultsList = document.getElementById('results list');
+        getinfo();
         var endResult;
 
         for (var i = 0; i < prodimg.prototype.allprodimgs.length; i++) {
@@ -199,4 +200,21 @@ function clickByUser(event) {
 }
 
 }
+// here is the storage data 
+var setlist = [];
+function list(){
+    setlist=JSON.stringify(prodimg.prototype.allprodimgs);
+          localStorage.setItem('setlist',setlist);
 
+}
+
+
+function getinfo(){
+    var imgeslist = localStorage.getItem('allprodimgs');
+    var list = JSON.parse(imgeslist);
+
+    if (list !== null){
+        prodimg.prototype.allprodimgs = list ;
+        setlist = imgjs;
+    }
+}
